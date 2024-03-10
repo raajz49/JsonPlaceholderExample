@@ -1,0 +1,38 @@
+[
+    {
+        "id":1,
+        "title":"Steve Smith",
+        "content":"He is a test player",
+        "Technique":[
+            {
+                "position":"1 down"
+
+            }
+        ]
+
+    },
+
+    {
+        "id":2,
+        "title":"David Warner",
+        "content":"He is a all format player",
+        "Technique":[
+            {
+                "position":"Opener"
+            }
+        ]
+    },
+
+    {
+
+        "id":3,
+        "title":"Glenn Maxwell",
+        "content":"He is the Big Show ",
+        "Technique":[
+            {
+                "position":"Finisher"
+            }
+        ]
+    }
+]
+

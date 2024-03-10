@@ -1,0 +1,152 @@
+<div className='form bg-black p-8 rounded-lg '>
+        <h2 className='text-white font-semibold text-xl mb-2'>Login</h2>
+        <p className='text-white text-opacity-50 mb-6'>Create an account for your page</p>
+        <form  className=' flex flex-col space-y-4'>
+          <div className='flex flex-col'>
+          <input type="text" name="FullName" 
+          className="bg-black text-white rounded border border-gray-700 py-2 px-4 focus:bg-gray-800 focus:outline-none"
+          placeholder='Enter Your Name'></input>
+          </div>
+          <div className='flex flex-col'>
+          <input type="password" name="Password" 
+          className="bg-black text-white rounded border border-gray-700 py-2 px-4  focus:bg-gray-800 focus:outline-none"
+          placeholder='********'></input>
+          </div>
+          <p className='text-white mb-2'>Already have an account? Sign up</p>
+          <button className="bg-white text-black hover:bg-blue-600 font-semibold py-2 px-4 rounded self-start">Submit </button>
+        </form>
+      </div>
+
+
+
+
+import React from "react";
+import './index.css';
+import Home from "./routes/home";
+import About from "./routes/about";
+import Project from "./routes/project";
+import Contact from "./routes/contact";
+
+
+import { Route, Routes } from "react-router-dom";
+import UnderConstruction from "./Components/UnderConstruction";
+
+function App() {
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/project" element={<Project />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path = "/underconstruction" element={<UnderConstruction />} />
+       
+        
+      </Routes>
+    </>
+  );
+}
+
+export default App;
+
+
+
+      //////json////////////////
+
+
+      {/* .....JSON example.......
+      <br />
+      <br />
+      {
+        Records&&Records.map(record =>{
+          return(
+            <div className='boxdata' key={record.id}>
+              
+             { <strong>  record.title</strong>} 
+             <br />
+              {record.content}
+              <br /> 
+
+              {
+                record.Technique&& record.Technique.map(tech=>{
+                  return(
+                    <div className='role' key={record.id}>
+                     ----- {tech.position}------
+                      </div>
+                  )
+                }
+                  )
+              }
+      //          */}
+      //         </div>
+      //     )
+      //   })
+      // }
+
+
+      import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+function PhotoGallery() {
+  const [photos, setPhotos] = useState([]);
+
+  useEffect(() => {
+    const fetchPhotos = async () => {
+      try {
+        const response = await axios.get('https://jsonplaceholder.typicode.com/photos');
+        setPhotos(response.data);
+      } catch (error) {
+        console.error('Error fetching photos:', error);
+      }
+    };
+
+    fetchPhotos();
+  }, []);
+
+  return (
+    <div>
+      <h1>Photo Gallery</h1>
+      <div className="grid grid-cols-3 gap-4">
+        {photos.map(photo => (
+          <div key={photo.id}>
+            <img src={photo.thumbnailUrl} alt={photo.title} />
+            <p>{photo.title}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default PhotoGallery;
+
+
+
+
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+export default function View() {
+  return (
+    <div className='container mx-auto px-4'>
+      <div>
+        <h1 className='text-2xl font-serif mb-4 text-blue-900 font-bold underline'>View</h1>
+        <div className="flex justify-between">
+          <div className="bg-blue-200 p-4 rounded w-48">
+            <h2 className="text-lg font-semibold mb-2">User Details and Posts</h2>
+            <ul>
+              <li className='italic underline text-lg'><Link to="/users">User details and Post</Link></li>
+            </ul>
+          </div>
+          <div className="bg-blue-200 p-4 rounded w-48">
+            <h2 className="text-lg font-semibold mb-2">Albums</h2>
+            <ul>
+              <li className='italic underline text-lg'><Link to="/albums">Albums</Link></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
