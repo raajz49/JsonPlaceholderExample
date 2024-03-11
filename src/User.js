@@ -23,12 +23,14 @@ export default function User() {
       <h1 className='text-2xl font-serif mb-4 text-blue-900 font-bold underline'>Users</h1>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
         {users.map(user => (
-          <div key={user.id} className='bg-blue-100 p-4 rounded'>
-            <p className='mb-2'><strong className='text-blue-700'>Name:</strong> <Link to={`/users/${user.id}/posts`} className="italic text-blue-500 underline">{user.name}</Link></p>
-            <p className='mb-2'><strong className='text-blue-700'>Email:</strong> <span className='italic'>{user.email}</span></p>
-            <p className='mb-2'><strong className='text-blue-700'>City:</strong> <span className='font-semibold'>{user.address.city}</span></p>
+              <Link key={user.id} to={`/users/${user.id}/posts`} className="">
+            <div className='bg-gray-800 text-white p-4 rounded hover:bg-gray-300 hover:text-black'>
+            <p className='mb-2'><strong className=''>Name:</strong> {user.name}</p>
+            <p className='mb-2'><strong className=''>Email:</strong> <span className='italic'>{user.email}</span></p>
+            <p className='mb-2'><strong className=''>City:</strong> <span className=''>{user.address.city}</span></p>
             {/* <p><strong className='text-blue-700'>Albums:</strong> <Link to={`/users/${user.id}/albums`} className="text-blue-500">View Albums</Link></p> */}
           </div>
+          </Link>
         ))}
       </div>
     </div>

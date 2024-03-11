@@ -25,11 +25,13 @@ function PhotoGallery() {
      <h1 className='text-2xl text-red-600 font-serif mb-4'>Photos - Album {albumId}</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
         {photos.map(photo => (
+          <div className=''>
           <div key={photo.id} className="bg-white rounded-lg overflow-hidden shadow-md">
             <img src={photo.thumbnailUrl} alt={photo.title} className="w-full"/>
             <div className='p-4'> 
-              <p className='text-blue-700 font-bold font-serif'>{photo.title}</p>
+              <p className='text-gray-600 font-bold font-serif'>{photo.title}</p>
             </div>
+          </div>
           </div>
         ))}
       </div>
